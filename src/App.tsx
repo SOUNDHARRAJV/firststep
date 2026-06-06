@@ -354,7 +354,7 @@ function LandingScreen({ onContinue }: { onContinue: () => void }) {
           onClick={onContinue}
           className="w-full bg-emerald-800 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 text-base shadow-xs"
         >
-          Try the Simulator
+          Start Investing..
           <ArrowRight size={18} strokeWidth={2.5} />
         </button>
         <p className="text-center text-[11px] text-slate-400 font-medium tracking-wide">
@@ -366,17 +366,18 @@ function LandingScreen({ onContinue }: { onContinue: () => void }) {
 }
 
 /* ==========================================
-   SCREEN 0.5: REASSURING GUIDELINES (NON-CONFRONTATIONAL)
+   SCREEN 0.5: REASSURING GUIDELINES
 ========================================== */
-// (Renamed inside index array maps internally as Screen 1 contextually to block progression until checked)
 function PromiseScreen({ onContinue }: { onContinue: () => void }) {
   return (
-    <div className="absolute inset-0 p-5 flex flex-col justify-between pt-6 bg-white">
-      <div className="overflow-y-auto pr-0.5 space-y-4 scrollbar-none flex-1 max-h-[590px]">
-        <div className="pb-1">
-          <h1>    </h1>
-          <h2 className="text-lg font-bold text-slate-900 tracking-tight">Our Honest Guidelines</h2>
-          <p className="text-slate-400 text-xs mt-0.5 leading-normal">
+    <div className="absolute inset-0 p-5 flex flex-col justify-between bg-white">
+      {/* Scrollable Container with balanced height limits */}
+      <div className="overflow-y-auto pr-0.5 space-y-4 scrollbar-none flex-1 max-h-[610px]">
+        
+        {/* Adjusted Header Container with tight layout styling */}
+        <div className="pt-2 pb-1">
+          <h2 className="text-base font-black text-slate-950 tracking-tight">Our Honest Guidelines</h2>
+          <p className="text-slate-400 text-[11px] mt-0.5 leading-normal font-medium">
             We designed this interface preview to make exploring the stock market simple, clear, and perfectly secure.
           </p>
         </div>
@@ -384,11 +385,11 @@ function PromiseScreen({ onContinue }: { onContinue: () => void }) {
         <div className="space-y-3.5">
           {/* Reassuring What We Do Block */}
           <div>
-            <div className="flex items-center gap-1.5 mb-2 px-1">
-              <ShieldCheck size={15} className="text-emerald-600" />
+            <div className="flex items-center gap-1.5 mb-1.5 px-0.5">
+              <ShieldCheck size={14} className="text-emerald-700" strokeWidth={2.5} />
               <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider">Our Transparency Commitments</span>
             </div>
-            <div className="bg-emerald-50/30 rounded-xl p-3.5 space-y-2.5 border border-emerald-100/40">
+            <div className="bg-emerald-50/30 rounded-xl p-3 space-y-2 border border-emerald-100/40">
               {[
                 'Let you test allocation architectures starting at just ₹100',
                 'Show realistic risk variables and down-market cycles transparently',
@@ -396,8 +397,8 @@ function PromiseScreen({ onContinue }: { onContinue: () => void }) {
                 'Deconstruct portfolio metrics in warm, simple everyday language'
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                  <p className="text-xs text-slate-700 leading-tight font-medium">{text}</p>
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
+                  <p className="text-xs text-slate-700 leading-snug font-medium">{text}</p>
                 </div>
               ))}
             </div>
@@ -405,11 +406,11 @@ function PromiseScreen({ onContinue }: { onContinue: () => void }) {
 
           {/* Secure / Preventive Safety Boundaries Block */}
           <div>
-            <div className="flex items-center gap-1.5 mb-2 px-1">
-              <ShieldX size={15} className="text-slate-400" />
+            <div className="flex items-center gap-1.5 mb-1.5 px-0.5">
+              <ShieldX size={14} className="text-slate-400" strokeWidth={2.5} />
               <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Safety Protocols</span>
             </div>
-            <div className="bg-slate-50 rounded-xl p-3.5 space-y-2.5 border border-slate-200/50">
+            <div className="bg-slate-50 rounded-xl p-3 space-y-2 border border-slate-200/50">
               {[
                 'We never make false claims regarding guaranteed yields or gains',
                 'We never mask system structural guidelines inside hidden fine print contracts',
@@ -417,7 +418,7 @@ function PromiseScreen({ onContinue }: { onContinue: () => void }) {
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-2.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 shrink-0" />
-                  <p className="text-xs text-slate-600 leading-tight font-medium">{text}</p>
+                  <p className="text-xs text-slate-600 leading-snug font-medium">{text}</p>
                 </div>
               ))}
             </div>
@@ -425,12 +426,13 @@ function PromiseScreen({ onContinue }: { onContinue: () => void }) {
         </div>
       </div>
 
+      {/* Button wrapper anchored at base */}
       <div className="pt-2 shrink-0">
         <button
           onClick={onContinue}
-          className="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
+          className="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm shadow-xs"
         >
-          Let's Practice
+          Continue to Explore!
           <ArrowRight size={16} strokeWidth={2.5} />
         </button>
       </div>
@@ -876,8 +878,7 @@ function SuccessScreen({
           className="w-full bg-white hover:bg-slate-50 text-slate-500 font-semibold py-2 rounded-xl transition-colors flex items-center justify-center gap-1.5 text-xs border border-slate-200"
         >
           <RefreshCw size={11} strokeWidth={2.5} />
-          Reset & Simulate New Target
-        </button>
+          Reset         </button>
       </div>
     </div>
   );

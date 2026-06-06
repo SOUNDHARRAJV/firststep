@@ -763,8 +763,8 @@ function SuccessScreen({
   return (
     <div className="absolute inset-0 p-5 flex flex-col justify-between pt-8 bg-white">
       
-      {/* Upper Content Frame (Zero Scroll Required) */}
-      <div className="space-y-4">
+      {/* Upper Content Frame */}
+      <div className="space-y-3.5">
         {/* Compact Header */}
         <div className="text-center space-y-0.5">
           <h2 className="text-xl font-black text-slate-950 tracking-tight">
@@ -812,7 +812,7 @@ function SuccessScreen({
           </div>
         </div>
 
-        {/* Inline Chart View without Dark Callout Box */}
+        {/* Inline Chart View */}
         <div className="bg-white rounded-2xl border border-slate-100 p-3 space-y-1">
           <div className="flex justify-between items-baseline px-0.5">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">1-Year Value Trend</span>
@@ -820,7 +820,7 @@ function SuccessScreen({
           </div>
 
           <div className="w-full pt-1">
-            <ResponsiveContainer width="100%" height={75}>
+            <ResponsiveContainer width="100%" height={70}>
               <LineChart data={growthPreviewData} margin={{ top: 4, right: 8, left: -28, bottom: -5 }}>
                 <CartesianGrid strokeDasharray="2 2" stroke="#f1f5f9" vertical={false} />
                 <XAxis dataKey="name" tick={{ fontSize: 8, fill: '#94a3b8', fontWeight: 600 }} axisLine={false} tickLine={false} />
@@ -834,12 +834,37 @@ function SuccessScreen({
             </ResponsiveContainer>
           </div>
         </div>
+
+        {/* NEW COMPONENT: CREATIVE ROADMAP GAPS PILL FOR PRANESH */}
+        <div className="bg-emerald-950 text-white rounded-2xl p-3.5 space-y-2.5 shadow-xs">
+          <div className="flex items-center justify-between">
+            <span className="text-[9px] text-emerald-300 font-bold tracking-wider uppercase">What's Next, Pranesh?</span>
+            <span className="text-[8px] bg-emerald-800 text-emerald-100 px-1.5 py-0.5 rounded font-mono font-bold">SIMULATOR COMPLETE</span>
+          </div>
+          
+          <div className="space-y-2 text-xs">
+            <div className="flex gap-2.5 items-start">
+              <div className="w-4 h-4 rounded-full bg-emerald-700 text-emerald-200 text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">1</div>
+              <p className="text-emerald-100 font-medium leading-tight text-[11px]">
+                Complete your identity check securely <span className="text-emerald-400 font-bold">(takes 2 mins)</span>.
+              </p>
+            </div>
+            
+            <div className="flex gap-2.5 items-start">
+              <div className="w-4 h-4 rounded-full bg-emerald-800 text-emerald-400 text-[9px] font-bold flex items-center justify-center shrink-0 mt-0.5">2</div>
+              <p className="text-emerald-300 font-medium leading-tight text-[11px]">
+                Link your bank handle to automate small monthly ₹{fmtShort(amount)} deposits seamlessly.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       {/* Persistent Button Controls Block */}
       <div className="space-y-2 pb-1">
         <button
-          onClick={() => alert("Simulation Completed!")}
+          onClick={() => alert("Ready to set up your real wealth dashboard!")}
           className="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-xs"
         >
           View My Plan Dashboard
